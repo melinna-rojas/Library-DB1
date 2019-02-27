@@ -7,10 +7,10 @@ package library;
  *
  * @author Melinna
  */
-public class ModelTable {
+public class Book {
     String codigo,titulo,autor,tipo,estado;
 
-    public ModelTable(String codigo, String titulo, String autor, String tipo, String estado) {
+    public Book(String codigo, String titulo, String autor, String tipo, String estado) {
         this.codigo = codigo;
         this.titulo = titulo;
         this.autor = autor;

@@ -30,19 +30,19 @@ import javafx.scene.control.cell.PropertyValueFactory;
 public class FXMLMainController implements Initializable {
 
     @FXML
-    private TableView<ModelTable> tableInventario;
+    private TableView<Book> tableInventario;
     @FXML
-    private TableColumn<ModelTable, String> col_Codigo;
+    private TableColumn<Book, String> col_Codigo;
     @FXML
-    private TableColumn<ModelTable, String> col_Titulo;
+    private TableColumn<Book, String> col_Titulo;
     @FXML
-    private TableColumn<ModelTable, String> col_Autor;
+    private TableColumn<Book, String> col_Autor;
     @FXML
-    private TableColumn<ModelTable, String> col_Tipo;
+    private TableColumn<Book, String> col_Tipo;
     @FXML
-    private TableColumn<ModelTable, String> col_Estado;
+    private TableColumn<Book, String> col_Estado;
     
-    ObservableList<ModelTable> oblist = FXCollections.observableArrayList();
+    ObservableList<Book> oblist = FXCollections.observableArrayList();
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -52,7 +52,7 @@ public class FXMLMainController implements Initializable {
             Connection con = DBConnector.getConnection();
             ResultSet rs = con.createStatement().executeQuery("select * from data");
             while(rs.next()){
-                oblist.add(new ModelTable(rs.getString("id"),rs.getString("titulo"),
+                oblist.add(new Book(rs.getString("id"),rs.getString("titulo"),
                         rs.getString("autor"),rs.getString("tipo"),rs.getString("estado")));
             }
             
