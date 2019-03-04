@@ -8,55 +8,58 @@ package library;
  * @author Melinna
  */
 public class Book {
-    String codigo,titulo,autor,tipo,estado;
+    String ISBN, Titulo,Autor, Tipo, Area, Estado;
+   int Cantidad;
 
-    public Book(String codigo, String titulo, String autor, String tipo, String estado) {
-        this.codigo = codigo;
-        this.titulo = titulo;
-        this.autor = autor;
-        this.tipo = tipo;
-        this.estado = estado;
+    public Book(String ISBN, String Titulo, String Autor, String Tipo, String Area, String Estado, int Cantidad) {
+        this.ISBN = ISBN;
+        this.Titulo = Titulo;
+        this.Autor = Autor;
+        this.Tipo = Tipo;
+        this.Area = Area;
+        this.Estado = Estado;
+        this.Cantidad = Cantidad;
     }
 
-    public String getCodigo() {
-        return codigo;
+    public String getISBN() {
+        return ISBN;
     }
 
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
+    public void setISBN(String ISBN) {
+        this.ISBN = ISBN;
     }
 
     public String getTitulo() {
-        return titulo;
+        return Titulo;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    public void setTitulo(String Titulo) {
+        this.Titulo = Titulo;
     }
 
     public String getAutor() {
-        return autor;
+        return Autor;
     }
 
-    public void setAutor(String autor) {
-        this.autor = autor;
+    public void setAutor(String Autor) {
+        this.Autor = Autor;
     }
 
     public String getTipo() {
-        return tipo;
+        return Tipo;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setTipo(String Tipo) {
+        this.Tipo = Tipo;
     }
 
-    public String getEstado() {
-        return estado;
+    public String getArea() {
+        return Area;
     }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public void setArea(String Area) {
+        this.Area = Area;
     }
     
-    
+   
 }
