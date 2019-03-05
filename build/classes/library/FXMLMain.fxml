@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" styleClass="loginBackground" stylesheets="@main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="library.FXMLMainController">
+   <children>
+      <JFXTabPane prefHeight="600.0" prefWidth="900.0">
+         <tabs>
+            <Tab text="inventario">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <JFXTextField focusColor="#1abc9c" layoutX="79.0" layoutY="39.0" prefHeight="19.0" prefWidth="240.0" styleClass="textfield" stylesheets="@main.css" unFocusColor="#808b96" />
+                        <Label layoutX="26.0" layoutY="46.0" styleClass="labelDark" stylesheets="@main.css" text="Título:" />
+                        <Label layoutX="362.0" layoutY="46.0" prefHeight="17.0" prefWidth="42.0" styleClass="labelDark" stylesheets="@main.css" text="Autor:" />
+                        <JFXTextField focusColor="#1abc9c" layoutX="456.0" layoutY="39.0" prefHeight="19.0" prefWidth="240.0" styleClass="textfield" stylesheets="@main.css" unFocusColor="#808b96" />
+                        <Label layoutX="26.0" layoutY="99.0" styleClass="labelDark" stylesheets="@main.css" text="Área:" />
+                        <JFXComboBox focusColor="#1abc9c" layoutX="79.0" layoutY="85.0" prefHeight="25.0" prefWidth="241.0" styleClass="textfield" stylesheets="@main.css" unFocusColor="#808b96" />
+                        <Label layoutX="362.0" layoutY="99.0" prefHeight="17.0" prefWidth="42.0" styleClass="labelDark" stylesheets="@main.css" text="Tipo:" />
+                        <JFXComboBox focusColor="#1abc9c" layoutX="456.0" layoutY="85.0" prefHeight="30.0" prefWidth="241.0" styleClass="textfield" stylesheets="@main.css" unFocusColor="#808b96" />
+                        <Separator layoutY="148.0" prefHeight="0.0" prefWidth="900.0" />
+                        <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="775.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/icons8-search-filled-50.png" />
+                           </image>
+                        </ImageView>
+                        <TableView fx:id="tableInventario" layoutX="15.0" layoutY="164.0" prefHeight="392.0" prefWidth="880.0" stylesheets="@main.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                          <columns>
+                            <TableColumn fx:id="col_Codigo" prefWidth="70.0" text="CÓDIGO" />
+                            <TableColumn fx:id="col_Titulo" minWidth="0.0" prefWidth="407.0" text="TÍTULO" />
+                              <TableColumn fx:id="col_Autor" minWidth="0.0" prefWidth="202.0" text="AUTOR" />
+                              <TableColumn fx:id="col_Tipo" prefWidth="100.0" text="TIPO" />
+                              <TableColumn fx:id="col_Estado" prefWidth="100.0" text="ESTADO" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+          <Tab text="inicio">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+          <Tab text="devoluciones">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+            <Tab text="escolares">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+         </tabs>
+      </JFXTabPane>
+      <Pane prefHeight="60.0" prefWidth="900.0" styleClass="commonPane" stylesheets="@main.css">
+         <children>
+            <Label layoutX="28.0" layoutY="22.0" styleClass="options" stylesheets="@main.css" text="inicio" />
+            <Label layoutX="84.0" layoutY="22.0" styleClass="options" stylesheets="@main.css" text="prestamos" />
+            <Label layoutX="168.0" layoutY="22.0" styleClass="options" stylesheets="@main.css" text="alumnos" />
+            <Label layoutX="249.0" layoutY="22.0" styleClass="options" stylesheets="@main.css" text="inventario" />
+            <Label layoutX="683.0" layoutY="13.0" prefHeight="35.0" prefWidth="189.0" styleClass="user" stylesheets="@main.css" text="ROJAS CAMARGO, Melinna" />
+         </children></Pane>
+   </children>
+</AnchorPane>

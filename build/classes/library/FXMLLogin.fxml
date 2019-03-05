@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="700.0" styleClass="loginBackground" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="library.FXMLLoginController">
+    <stylesheets>
+        <URL value="@main.css" />
+    </stylesheets>
+   <children>
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="300.0" styleClass="commonPane">
+         <children>
+            <Label layoutX="42.0" layoutY="128.0" prefHeight="38.0" prefWidth="187.0" styleClass="mainTitle" stylesheets="@main.css" text="SISTEMA DE">
+               <font>
+                  <Font name="Roboto Bold" size="30.0" />
+               </font>
+            </Label>
+            <Label id="mainT" layoutX="42.0" layoutY="159.0" prefHeight="42.0" prefWidth="212.0" styleClass="mainTitle" stylesheets="@main.css" text="BIBLIOTECA">
+               <font>
+                  <Font name="Roboto Bold" size="30.0" />
+               </font>
+            </Label>
+            <Pane layoutX="42.0" layoutY="205.0" prefHeight="6.0" prefWidth="200.0" style="-fx-background-color: white;" />
+         </children></Pane>
+      <Label alignment="CENTER" layoutX="412.0" layoutY="51.0" prefHeight="42.0" prefWidth="187.0" styleClass="title" stylesheets="@main.css" text="Iniciar Sesión" />
+      <JFXTextField fx:id="userLogin" focusColor="WHITE" layoutX="404.0" layoutY="146.0" prefHeight="40.0" prefWidth="230.0" promptText="  Usuario" styleClass="txtFieldLogin" stylesheets="@main.css" unFocusColor="WHITE" />
+      <JFXTextField fx:id="passwordLogin" focusColor="WHITE" layoutX="404.0" layoutY="205.0" prefHeight="40.0" prefWidth="230.0" promptText="  Contraseña" styleClass="txtFieldLogin" stylesheets="@main.css" unFocusColor="WHITE" />
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="365.0" layoutY="146.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/icons8-customer-40.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="425.0" layoutY="262.0" styleClass="hipervinculo" stylesheets="@main.css" text="¿Olvidó su contraseña?" />
+      <JFXButton layoutX="416.0" layoutY="332.0" prefHeight="40.0" prefWidth="164.0" styleClass="buttonDark" stylesheets="@main.css" text="INGRESAR" textAlignment="CENTER" />
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="365.0" layoutY="205.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/icons8-lock-40.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

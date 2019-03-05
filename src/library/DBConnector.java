@@ -19,23 +19,29 @@ public class DBConnector {
     private String PASSWORD = "";
     private String HOST = "localhost";
     private String PORT = "3306";
-    private String DATABASE = "biblioteca";
+    private String DATABASE = "library";
 
     private String CLASSNAME = "com.mysql.jdbc.Driver";
-    private String URL = "jdbc:mysql://" + HOST + ":" + PORT + "/" + DATABASE;
+    private String URL = "jdbc:mysql://" + HOST + ":" + PORT + "/" + DATABASE + "?user="+USERNAME+"&password="+PASSWORD;
 
-    private static Connection connection;
 
-    public DBConnector() {
+ 
+
+    public Connection getConexion(){
+        
         try {
             Class.forName(CLASSNAME);
-            connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            Connection connection = DriverManager.getConnection(URL);
+             return connection;
         } catch (ClassNotFoundException | SQLException ex) {
             System.err.println("ERROR" + ex);
         }
+            return null;
+       
     }
-
-    public static Connection getConnection(){
-        return connection;
-    }
+    
+//    public static void main(String[] args) {
+//        DBConnector con = new DBConnector();
+//        System.out.println(con.getConexion());
+//    }
 }
