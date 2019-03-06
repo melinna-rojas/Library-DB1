@@ -9,13 +9,8 @@
 package library;
 
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -29,68 +24,61 @@ import javafx.util.Callback;
  *
  * @author Melinna
  */
-public class FXMLMainController implements Initializable{
+public class FXMLMainController implements Initializable {
 
     // Se eliminaron los objetos de la tabla y sus columnas
     @FXML
     private TableView tableInventario;
 
-    
 //    ObservableList<Book> oblist = FXCollections.observableArrayList();
-    
     @Override
-    public void initialize(URL url, ResourceBundle rb){
-        
-            
+    public void initialize(URL url, ResourceBundle rb) {
+
         TableColumn col_Codigo;
-
         TableColumn col_Titulo;
-
         TableColumn col_Autor;
-
         TableColumn col_Tipo;
-
+        TableColumn col_Area;
         TableColumn col_Estado;
-        
-        
+        TableColumn col_Cantidad;
+
         col_Codigo = new TableColumn("ISBN");
         col_Titulo = new TableColumn("TITULO");
         col_Autor = new TableColumn("AUTOR");
-        col_Tipo =  new TableColumn("TIPO");
+        col_Tipo = new TableColumn("TIPO");
+        col_Area = new TableColumn("AREA");
         col_Estado = new TableColumn("ESTADO");
-        
-        col_Codigo.setPrefWidth(70);
-        col_Titulo.setPrefWidth(405);
+        col_Cantidad = new TableColumn("CANTIDAD");
+
+        col_Codigo.setPrefWidth(110);
+        col_Titulo.setPrefWidth(320);
         col_Autor.setPrefWidth(200);
-        col_Tipo.setPrefWidth(100);
+        col_Tipo.setPrefWidth(70);
+        col_Area.setPrefWidth(100);
         col_Estado.setPrefWidth(100);
-        
-        tableInventario.setColumnResizePolicy(new Callback<TableView.ResizeFeatures, Boolean>(){
+        col_Cantidad.setPrefWidth(70);
+
+        tableInventario.setColumnResizePolicy(new Callback<TableView.ResizeFeatures, Boolean>() {
             @Override
             public Boolean call(TableView.ResizeFeatures param) {
                 return true;
             }
-            
-        });
-        
-        tableInventario.getColumns().addAll(col_Codigo,col_Titulo,col_Autor,col_Tipo,col_Estado);
-        
-        ArrayList<Book> books = new ArrayList<>();
-        books.add(new Book("0001", "Hola mundo", "Carlos", "dasad","asdasd", "asda",3));
-        books.add(new Book("0002", "Hola mundo1", "Carñaslos","dasad","asdasd", "asda", 6));
-        books.add(new Book("0003", "Hola mundo2", "Carlxdos","dasad","asdasd", "asda", 7));
-        books.add(new Book("0004", "Hola mundo3", "qwqw","dasad","asdasd", "asda", 8));
 
-        
+        });
+
+        tableInventario.getColumns().addAll(col_Codigo, col_Titulo, col_Autor, col_Tipo, col_Area,col_Estado,col_Cantidad);
+
+        ArrayList<Book> books = Querys.listar();
+
         ObservableList<Book> oblist = FXCollections.observableArrayList(books);
-        
-        col_Codigo.setCellValueFactory(new PropertyValueFactory<Book,String>("ISBN"));
-        col_Titulo.setCellValueFactory(new PropertyValueFactory<Book,String>("Titulo"));
-        col_Autor.setCellValueFactory(new PropertyValueFactory<Book,String>("Autor"));
-        col_Tipo.setCellValueFactory(new PropertyValueFactory<Book,String>("Tipo"));
-        col_Estado.setCellValueFactory(new PropertyValueFactory<Book,String>("Estado"));
-        
-        
+
+        col_Codigo.setCellValueFactory(new PropertyValueFactory<Book, String>("ISBN"));
+        col_Titulo.setCellValueFactory(new PropertyValueFactory<Book, String>("Titulo"));
+        col_Autor.setCellValueFactory(new PropertyValueFactory<Book, String>("Autor"));
+        col_Tipo.setCellValueFactory(new PropertyValueFactory<Book, String>("Tipo"));
+        col_Area.setCellValueFactory(new PropertyValueFactory<Book, String>("Area"));
+        col_Estado.setCellValueFactory(new PropertyValueFactory<Book, String>("Estado"));
+        col_Cantidad.setCellValueFactory(new PropertyValueFactory<Book, String>("Cantidad"));
         tableInventario.setItems(oblist);
 //        try {
 //            Connection con = DBConnector.getConnection();
@@ -116,10 +104,7 @@ public class FXMLMainController implements Initializable{
 //        for (Book book : books) {
 //            tableInventario.getItems().add(book);
 //        }
-    
+
 //        tableInventario.setItems(oblist);
-
-
-
-   }
-}    
+    }
+}

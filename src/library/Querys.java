@@ -52,7 +52,10 @@ public class Querys extends DBConnector {
 //        ArrayList<Book> books = listar();
 //        for (Book book : books) {
 //            System.out.println(book.getTitulo());
+//            System.out.println(book.getArea());
+//            System.out.println(book.getCantidad());
+//           
 //        }
-//    }
+//   }
 
 }

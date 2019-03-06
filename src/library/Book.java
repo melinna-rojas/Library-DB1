@@ -72,5 +72,19 @@ public class Book {
         this.Area.setValue(Area);
     }
     
+   public String getCantidad(){
+       return Cantidad.get();
+   }
    
+   public void setCantidad(int Cantidad){
+       this.Cantidad.setValue(String.valueOf(Cantidad));
+   }
+   
+   public String getEstado(){
+       return Estado.get();
+   }
+   
+   public void setEstado(String Estado){
+       this.Estado.setValue(Estado);
+   }
 }
