@@ -8,11 +8,13 @@
  */
 package library;
 
+import com.jfoenix.controls.JFXButton;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
@@ -29,6 +31,13 @@ public class FXMLMainController implements Initializable {
     // Se eliminaron los objetos de la tabla y sus columnas
     @FXML
     private TableView tableInventario;
+    @FXML
+    private JFXButton btn_Rtc;
+    @FXML
+    private JFXButton btn_Sgt;
+
+    private ArrayList<Book> books;
+    private int index;
 
 //    ObservableList<Book> oblist = FXCollections.observableArrayList();
     @Override
@@ -66,11 +75,16 @@ public class FXMLMainController implements Initializable {
 
         });
 
-        tableInventario.getColumns().addAll(col_Codigo, col_Titulo, col_Autor, col_Tipo, col_Area,col_Estado,col_Cantidad);
+        tableInventario.getColumns().addAll(col_Codigo, col_Titulo, col_Autor, col_Tipo, col_Area, col_Estado, col_Cantidad);
+        books = Querys.listar();
 
-        ArrayList<Book> books = Querys.listar();
+        ArrayList<Book> _books = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            _books.add(books.get(i));
+            index = i;
+        }
 
-        ObservableList<Book> oblist = FXCollections.observableArrayList(books);
+        ObservableList<Book> oblist = FXCollections.observableArrayList(_books);
 
         col_Codigo.setCellValueFactory(new PropertyValueFactory<Book, String>("ISBN"));
         col_Titulo.setCellValueFactory(new PropertyValueFactory<Book, String>("Titulo"));
@@ -80,31 +94,32 @@ public class FXMLMainController implements Initializable {
         col_Estado.setCellValueFactory(new PropertyValueFactory<Book, String>("Estado"));
         col_Cantidad.setCellValueFactory(new PropertyValueFactory<Book, String>("Cantidad"));
         tableInventario.setItems(oblist);
-//        try {
-//            Connection con = DBConnector.getConnection();
-//            ResultSet rs = con.createStatement().executeQuery("select * from data");
-//            while(rs.next()){
-//                oblist.add(new Book(rs.getString("id"),rs.getString("titulo"),
-//                        rs.getString("autor"),rs.getString("tipo"),rs.getString("estado")));
-//            }
-//            
-//        } catch (SQLException ex) {
-//            Logger.getLogger(FXMLMainController.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        
-//        col_Codigo.setCellValueFactory(new PropertyValueFactory<>("codigo"));
-//        col_Titulo.setCellValueFactory(new PropertyValueFactory<>("titulo"));
-//        col_Autor.setCellValueFactory(new PropertyValueFactory<>("autor"));
-//        col_Tipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
-//        col_Estado.setCellValueFactory(new PropertyValueFactory<>("estado"));
-//        tableInventario.getColumns().addAll(col_Codigo,col_Titulo,col_Autor,col_Tipo,col_Estado);
-//        
-//        ArrayList<Book> books = Querys.listar();
-//        
-//        for (Book book : books) {
-//            tableInventario.getItems().add(book);
-//        }
 
-//        tableInventario.setItems(oblist);
+    }
+
+    @FXML
+    private void retroceder(ActionEvent event) {
+
+    }
+
+    @FXML
+    private void avanzar(ActionEvent event) {
+        ArrayList<Book> b_avanzar = new ArrayList<>();
+        if (books.size() - index < 10) {
+            
+            for (int i = index ; i < books.size(); i++) {
+                b_avanzar.add(books.get(i));
+            }
+        } 
+        else {
+            for (int i = index + 1; i < index + 10; i++) {
+                b_avanzar.add(books.get(i));
+            }
+        }
+        
+        ObservableList<Book> oblist = FXCollections.observableArrayList(b_avanzar);
+        
+        tableInventario.getItems().clear();
+        tableInventario.getItems().addAll(oblist);
     }
 }

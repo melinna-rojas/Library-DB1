@@ -107,7 +107,7 @@
 }
 
 .table-row-cell, .tree-table-row-cell {
-    -fx-cell-size: 35px;
+    -fx-cell-size: 38px;
     -fx-font: 14px "Roboto";
     
 }

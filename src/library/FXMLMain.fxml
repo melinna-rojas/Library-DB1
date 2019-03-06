@@ -39,8 +39,8 @@
                            </image> 
                         </ImageView>
                         <TableView fx:id="tableInventario" layoutX="10.0" layoutY="254.0" prefHeight="452.0" prefWidth="980.0" stylesheets="@main.css" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-                        <JFXButton layoutX="892.0" layoutY="163.0" prefHeight="25.0" prefWidth="30.0" styleClass="buttonDark" stylesheets="@main.css" text="&lt;" textAlignment="CENTER" />
-                        <JFXButton layoutX="938.0" layoutY="163.0" prefHeight="25.0" prefWidth="30.0" styleClass="buttonDark" stylesheets="@main.css" text="&gt;" textAlignment="CENTER" />
+                        <JFXButton fx:id="btn_Rtc" layoutX="892.0" layoutY="163.0" onAction="#retroceder" prefHeight="25.0" prefWidth="30.0" styleClass="buttonDark" stylesheets="@main.css" text="&lt;" textAlignment="CENTER" />
+                        <JFXButton fx:id="btn_Sgt" layoutX="938.0" layoutY="163.0" onAction="#avanzar" prefHeight="25.0" prefWidth="30.0" styleClass="buttonDark" stylesheets="@main.css" text="&gt;" textAlignment="CENTER" />
                      </children></AnchorPane>
               </content>
             </Tab>
