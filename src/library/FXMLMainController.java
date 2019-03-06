@@ -23,6 +23,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.util.Callback;
 
 /**
  *
@@ -59,11 +60,18 @@ public class FXMLMainController implements Initializable{
         col_Estado = new TableColumn("ESTADO");
         
         col_Codigo.setPrefWidth(70);
-        col_Titulo.setPrefWidth(407);
-        col_Autor.setPrefWidth(202);
+        col_Titulo.setPrefWidth(405);
+        col_Autor.setPrefWidth(200);
         col_Tipo.setPrefWidth(100);
         col_Estado.setPrefWidth(100);
         
+        tableInventario.setColumnResizePolicy(new Callback<TableView.ResizeFeatures, Boolean>(){
+            @Override
+            public Boolean call(TableView.ResizeFeatures param) {
+                return true;
+            }
+            
+        });
         
         tableInventario.getColumns().addAll(col_Codigo,col_Titulo,col_Autor,col_Tipo,col_Estado);
         

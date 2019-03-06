@@ -110,6 +110,11 @@
     -fx-cell-size: 40px;
 }
 
+.table-row-cell:selected {
+    -fx-background-color: #17A589;
+    
+}
+
 .table-cell {
     -fx-border-color: transparent; /* Vertical Lines*/
     -fx-border-width: 1;
