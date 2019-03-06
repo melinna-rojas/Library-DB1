@@ -28,26 +28,62 @@ import javafx.scene.control.cell.PropertyValueFactory;
  *
  * @author Melinna
  */
-public class FXMLMainController {
+public class FXMLMainController implements Initializable{
 
+    // Se eliminaron los objetos de la tabla y sus columnas
     @FXML
-    private TableView<Book> tableInventario;
-    @FXML
-    private TableColumn<Book, Book> col_Codigo;
-    @FXML
-    private TableColumn<Book, Book> col_Titulo;
-    @FXML
-    private TableColumn<Book, Book> col_Autor;
-    @FXML
-    private TableColumn<Book, Book> col_Tipo;
-    @FXML
-    private TableColumn<Book, Book> col_Estado;
+    private TableView tableInventario;
+
     
-    ObservableList<Book> oblist = FXCollections.observableArrayList();
+//    ObservableList<Book> oblist = FXCollections.observableArrayList();
     
-    public void initialize(URL url, ResourceBundle rb) {
+    @Override
+    public void initialize(URL url, ResourceBundle rb){
+        
+            
+        TableColumn col_Codigo;
+
+        TableColumn col_Titulo;
+
+        TableColumn col_Autor;
+
+        TableColumn col_Tipo;
+
+        TableColumn col_Estado;
         
         
+        col_Codigo = new TableColumn("ISBN");
+        col_Titulo = new TableColumn("TITULO");
+        col_Autor = new TableColumn("AUTOR");
+        col_Tipo =  new TableColumn("TIPO");
+        col_Estado = new TableColumn("ESTADO");
+        
+        col_Codigo.setPrefWidth(70);
+        col_Titulo.setPrefWidth(407);
+        col_Autor.setPrefWidth(202);
+        col_Tipo.setPrefWidth(100);
+        col_Estado.setPrefWidth(100);
+        
+        
+        tableInventario.getColumns().addAll(col_Codigo,col_Titulo,col_Autor,col_Tipo,col_Estado);
+        
+        ArrayList<Book> books = new ArrayList<>();
+        books.add(new Book("0001", "Hola mundo", "Carlos", "dasad","asdasd", "asda",3));
+        books.add(new Book("0002", "Hola mundo1", "Carñaslos","dasad","asdasd", "asda", 6));
+        books.add(new Book("0003", "Hola mundo2", "Carlxdos","dasad","asdasd", "asda", 7));
+        books.add(new Book("0004", "Hola mundo3", "qwqw","dasad","asdasd", "asda", 8));
+
+        
+        ObservableList<Book> oblist = FXCollections.observableArrayList(books);
+        
+        col_Codigo.setCellValueFactory(new PropertyValueFactory<Book,String>("ISBN"));
+        col_Titulo.setCellValueFactory(new PropertyValueFactory<Book,String>("Titulo"));
+        col_Autor.setCellValueFactory(new PropertyValueFactory<Book,String>("Autor"));
+        col_Tipo.setCellValueFactory(new PropertyValueFactory<Book,String>("Tipo"));
+        col_Estado.setCellValueFactory(new PropertyValueFactory<Book,String>("Estado"));
+        
+        
+        tableInventario.setItems(oblist);
 //        try {
 //            Connection con = DBConnector.getConnection();
 //            ResultSet rs = con.createStatement().executeQuery("select * from data");
@@ -60,19 +96,22 @@ public class FXMLMainController {
 //            Logger.getLogger(FXMLMainController.class.getName()).log(Level.SEVERE, null, ex);
 //        }
 //        
-        col_Codigo.setCellValueFactory(new PropertyValueFactory<>("codigo"));
-        col_Titulo.setCellValueFactory(new PropertyValueFactory<>("titulo"));
-        col_Autor.setCellValueFactory(new PropertyValueFactory<>("autor"));
-        col_Tipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
-        col_Estado.setCellValueFactory(new PropertyValueFactory<>("estado"));
-        tableInventario.getColumns().addAll(col_Codigo,col_Titulo,col_Autor,col_Tipo,col_Estado);
-        
-        ArrayList<Book> books = Querys.listar();
-        
-        for (Book book : books) {
-            tableInventario.getItems().add(book);
-        }
+//        col_Codigo.setCellValueFactory(new PropertyValueFactory<>("codigo"));
+//        col_Titulo.setCellValueFactory(new PropertyValueFactory<>("titulo"));
+//        col_Autor.setCellValueFactory(new PropertyValueFactory<>("autor"));
+//        col_Tipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
+//        col_Estado.setCellValueFactory(new PropertyValueFactory<>("estado"));
+//        tableInventario.getColumns().addAll(col_Codigo,col_Titulo,col_Autor,col_Tipo,col_Estado);
+//        
+//        ArrayList<Book> books = Querys.listar();
+//        
+//        for (Book book : books) {
+//            tableInventario.getItems().add(book);
+//        }
     
 //        tableInventario.setItems(oblist);
+
+
+
    }
 }    
