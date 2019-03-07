@@ -230,6 +230,14 @@ public class FXMLMainController implements Initializable {
     private void initPopUp() {
         JFXButton logout = new JFXButton("Cerrar Sesion");
         JFXButton close = new JFXButton("Salir");
+        logout.addEventHandler(MouseEvent.MOUSE_CLICKED, (event) -> {
+            
+        });
+        
+        close.addEventHandler(MouseEvent.MOUSE_CLICKED, (event) -> {
+            System.exit(0);
+        });
+        
         logout.setPadding(new Insets(10));
         logout.setPrefWidth(189);
         close.setPrefWidth(189);
