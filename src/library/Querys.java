@@ -40,6 +40,7 @@ public class Querys extends DBConnector {
                 Book newBook = new Book(ISBN, Titulo, Autor, Tipo, Area, Estado, Cantidad);
                 books.add(newBook);
             }
+            System.out.println(books.size());
             return books;
         } catch (SQLException ex) {
 
