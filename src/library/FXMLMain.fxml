@@ -16,10 +16,25 @@
 <!--focusColor="#1abc9c"-->
 <!--unFocusColor="#808b96"-->
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" styleClass="loginBackground" stylesheets="@main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="library.FXMLMainController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1300.0" styleClass="loginBackground" stylesheets="@main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="library.FXMLMainController">
    <children>
-      <JFXTabPane prefHeight="700.0" prefWidth="1000.0">
+      <JFXTabPane fx:id="tab_main" prefHeight="700.0" prefWidth="1300.0">
          <tabs>
+          <Tab text="inicio">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+          <Tab text="prestamos">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+            <Tab text="alumnos">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
             <Tab text="inventario">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
@@ -29,45 +44,34 @@
                         <Label layoutX="362.0" layoutY="46.0" prefHeight="17.0" prefWidth="42.0" styleClass="labelDark" stylesheets="@main.css" text="Autor:" />
                         <JFXTextField focusColor="#1abc9c" layoutX="456.0" layoutY="39.0" prefHeight="19.0" prefWidth="240.0" styleClass="textfield" stylesheets="@main.css" unFocusColor="#808b96" />
                         <Label layoutX="26.0" layoutY="99.0" styleClass="labelDark" stylesheets="@main.css" text="Área:" />
-                        <JFXComboBox layoutX="79.0" layoutY="85.0" prefHeight="25.0" prefWidth="241.0" styleClass="textfield" stylesheets="@main.css" />
+                        <JFXComboBox fx:id="cb_Area" layoutX="79.0" layoutY="85.0" prefHeight="25.0" prefWidth="241.0" styleClass="textfield" stylesheets="@main.css" />
                         <Label layoutX="362.0" layoutY="99.0" prefHeight="17.0" prefWidth="42.0" styleClass="labelDark" stylesheets="@main.css" text="Tipo:" />
-                        <JFXComboBox layoutX="456.0" layoutY="85.0" prefHeight="30.0" prefWidth="241.0" styleClass="textfield" stylesheets="@main.css" />
-                        <Separator layoutY="148.0" prefHeight="0.0" prefWidth="1000.0" />
-                        <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="906.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
+                        <JFXComboBox fx:id="cb_Tipo" layoutX="456.0" layoutY="85.0" prefHeight="30.0" prefWidth="241.0" styleClass="textfield" stylesheets="@main.css" />
+                        <Separator layoutY="148.0" prefHeight="0.0" prefWidth="1300.0" />
+                        <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1199.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
                           <image>
                               <Image url="@../images/icons8-search-filled-50.png" />
                            </image> 
                         </ImageView>
-                        <TableView fx:id="tableInventario" layoutX="10.0" layoutY="254.0" prefHeight="452.0" prefWidth="980.0" stylesheets="@main.css" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-                        <JFXButton fx:id="btn_Rtc" layoutX="892.0" layoutY="163.0" onAction="#retroceder" prefHeight="25.0" prefWidth="30.0" styleClass="buttonDark" stylesheets="@main.css" text="&lt;" textAlignment="CENTER" />
-                        <JFXButton fx:id="btn_Sgt" layoutX="938.0" layoutY="163.0" onAction="#avanzar" prefHeight="25.0" prefWidth="30.0" styleClass="buttonDark" stylesheets="@main.css" text="&gt;" textAlignment="CENTER" />
+                        <TableView fx:id="tableInventario" layoutX="10.0" layoutY="254.0" prefHeight="452.0" prefWidth="980.0" stylesheets="@main.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="22.0" />
+                        <JFXButton fx:id="btn_Rtc" layoutX="1190.0" layoutY="163.0" onAction="#retroceder" prefHeight="25.0" prefWidth="30.0" styleClass="buttonDark" stylesheets="@main.css" text="&lt;" textAlignment="CENTER" />
+                        <JFXButton fx:id="btn_Sgt" layoutX="1236.0" layoutY="163.0" onAction="#avanzar" prefHeight="25.0" prefWidth="30.0" styleClass="buttonDark" stylesheets="@main.css" text="&gt;" textAlignment="CENTER" />
+                        <Label layoutX="763.0" layoutY="99.0" prefHeight="20.0" prefWidth="57.0" styleClass="labelDark" stylesheets="@main.css" text="Estado:" />
+                        <JFXComboBox fx:id="cb_Estado" layoutX="857.0" layoutY="85.0" prefHeight="30.0" prefWidth="241.0" styleClass="textfield" stylesheets="@main.css" />
+                        <Label layoutX="764.0" layoutY="46.0" prefHeight="20.0" prefWidth="72.0" styleClass="labelDark" stylesheets="@main.css" text="Cantidad:" />
+                        <JFXTextField focusColor="#1abc9c" layoutX="858.0" layoutY="39.0" prefHeight="19.0" prefWidth="240.0" styleClass="textfield" stylesheets="@main.css" unFocusColor="#808b96" />
                      </children></AnchorPane>
-              </content>
-            </Tab>
-          <Tab text="inicio">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-            </content>
-          </Tab>
-          <Tab text="devoluciones">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-            </content>
-          </Tab>
-            <Tab text="escolares">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
               </content>
             </Tab>
          </tabs>
       </JFXTabPane>
-      <Pane prefHeight="60.0" prefWidth="1000.0" styleClass="commonPane" stylesheets="@main.css">
+      <Pane prefHeight="60.0" prefWidth="1300.0" styleClass="commonPane" stylesheets="@main.css">
          <children>
-            <Label layoutX="28.0" layoutY="22.0" styleClass="options" stylesheets="@main.css" text="inicio" />
-            <Label layoutX="84.0" layoutY="22.0" styleClass="options" stylesheets="@main.css" text="prestamos" />
-            <Label layoutX="168.0" layoutY="22.0" styleClass="options" stylesheets="@main.css" text="alumnos" />
-            <Label layoutX="249.0" layoutY="22.0" styleClass="options" stylesheets="@main.css" text="inventario" />
-            <Label layoutX="790.0" layoutY="13.0" prefHeight="35.0" prefWidth="189.0" styleClass="user" stylesheets="@main.css" text="ROJAS CAMARGO, Melinna" />
+            <Label fx:id="btn_Inicio" layoutX="28.0" layoutY="22.0" onMouseClicked="#changeTab" styleClass="options" stylesheets="@main.css" text="inicio" />
+            <Label fx:id="btn_Prestamos" layoutX="84.0" layoutY="22.0" onMouseClicked="#changeTab" styleClass="options" stylesheets="@main.css" text="prestamos" />
+            <Label fx:id="btn_Alumnos" layoutX="168.0" layoutY="22.0" onMouseClicked="#changeTab" styleClass="options" stylesheets="@main.css" text="alumnos" />
+            <Label fx:id="btn_Inventario" layoutX="249.0" layoutY="22.0" onMouseClicked="#changeTab" styleClass="options" stylesheets="@main.css" text="inventario" />
+            <Label fx:id="pop_Id" layoutX="1089.0" layoutY="13.0" onMouseClicked="#popUp_Click" prefHeight="35.0" prefWidth="189.0" styleClass="user" stylesheets="@main.css" text="ROJAS CAMARGO, Melinna" />
          </children></Pane>
    </children>
 </AnchorPane>

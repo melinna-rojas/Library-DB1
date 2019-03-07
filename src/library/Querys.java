@@ -40,12 +40,78 @@ public class Querys extends DBConnector {
                 Book newBook = new Book(ISBN, Titulo, Autor, Tipo, Area, Estado, Cantidad);
                 books.add(newBook);
             }
-            System.out.println(books.size());
+          
             return books;
         } catch (SQLException ex) {
 
             return null;
         }
+
+    }
+
+    public static ArrayList<String> mostrar_Tipo() {
+        ArrayList<String> tipos = new ArrayList<>();
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+
+        String query = "SELECT DISTINCT Tipo FROM libros";
+
+        try {
+            DBConnector conector = new DBConnector();
+            pst = conector.getConexion().prepareStatement(query);
+            rs = pst.executeQuery();
+
+            while (rs.next()) {
+                tipos.add(rs.getString("Tipo"));
+            }
+            return tipos;
+        } catch (SQLException ex) {
+            return null;
+        }
+
+    }
+    
+    public static ArrayList<String> mostrar_Area(){
+    ArrayList<String> area = new ArrayList<>();
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+
+        String query = "SELECT DISTINCT Area FROM libros";
+
+        try {
+            DBConnector conector = new DBConnector();
+            pst = conector.getConexion().prepareStatement(query);
+            rs = pst.executeQuery();
+
+            while (rs.next()) {
+                area.add(rs.getString("Area"));
+            }
+            return area;
+        } catch (SQLException ex) {
+            return null;
+        }          
+    }
+    
+    public static ArrayList<String> mostrar_Estado(){
+    ArrayList<String> estado = new ArrayList<>();
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+
+        String query = "SELECT DISTINCT Estado FROM libros";
+
+        try {
+            DBConnector conector = new DBConnector();
+            pst = conector.getConexion().prepareStatement(query);
+            rs = pst.executeQuery();
+
+            while (rs.next()) {
+                estado.add(rs.getString("Estado"));
+            }
+            return estado;
+        } catch (SQLException ex) {
+            return null;
+        }          
+    }
 
     }
 
@@ -59,4 +125,3 @@ public class Querys extends DBConnector {
 //        }
 //   }
 
-}
