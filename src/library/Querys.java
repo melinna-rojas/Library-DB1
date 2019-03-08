@@ -40,7 +40,7 @@ public class Querys extends DBConnector {
                 Book newBook = new Book(ISBN, Titulo, Autor, Tipo, Area, Estado, Cantidad);
                 books.add(newBook);
             }
-          
+
             return books;
         } catch (SQLException ex) {
 
@@ -70,9 +70,9 @@ public class Querys extends DBConnector {
         }
 
     }
-    
-    public static ArrayList<String> mostrar_Area(){
-    ArrayList<String> area = new ArrayList<>();
+
+    public static ArrayList<String> mostrar_Area() {
+        ArrayList<String> area = new ArrayList<>();
         PreparedStatement pst = null;
         ResultSet rs = null;
 
@@ -89,11 +89,11 @@ public class Querys extends DBConnector {
             return area;
         } catch (SQLException ex) {
             return null;
-        }          
+        }
     }
-    
-    public static ArrayList<String> mostrar_Estado(){
-    ArrayList<String> estado = new ArrayList<>();
+
+    public static ArrayList<String> mostrar_Estado() {
+        ArrayList<String> estado = new ArrayList<>();
         PreparedStatement pst = null;
         ResultSet rs = null;
 
@@ -110,18 +110,37 @@ public class Querys extends DBConnector {
             return estado;
         } catch (SQLException ex) {
             return null;
-        }          
+        }
     }
 
+    public static ArrayList<Book> search_Books(String n_Titulo, String n_Autor, String n_Tipo, String n_Area, String n_Estado) {
+        ArrayList<Book> book_S = new ArrayList<>();
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+       
+        String query = "SELECT ISBN,Titulo,Autor,Tipo,Area,Estado FROM libros WHERE Autor LIKE '%{"+n_Autor+"}%' OR Tipo LIKE '%{"+n_Tipo+"}% OR Area LIKE '%{"+n_Area+"}%' OR Estado LIKE '%{"+n_Estado+"}%'";       
+    
+        try {
+            DBConnector conector = new DBConnector();
+            pst = conector.getConexion().prepareStatement(query);
+            rs = pst.executeQuery();
+
+            while (rs.next()) {
+                String ISBN = rs.getString("ISBN");
+                String Titulo = rs.getString("Titulo");
+                String Autor = rs.getString("Autor");
+                int Cantidad = rs.getInt("Cantidad");
+                String Tipo = rs.getString("Tipo");
+                String Area = rs.getString("Area");
+                String Estado = rs.getString("Estado");
+
+                Book s_Book = new Book(ISBN, Titulo, Autor, Tipo, Area, Estado, Cantidad);
+                book_S.add(s_Book);
+            }
+            return book_S;
+        } catch (SQLException ex) {
+            return null;
+        }
     }
 
-//    public static void main(String[] args) {
-//        ArrayList<Book> books = listar();
-//        for (Book book : books) {
-//            System.out.println(book.getTitulo());
-//            System.out.println(book.getArea());
-//            System.out.println(book.getCantidad());
-//           
-//        }
-//   }
-
+}

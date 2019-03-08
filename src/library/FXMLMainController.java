@@ -12,6 +12,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXPopup;
 import com.jfoenix.controls.JFXTabPane;
+import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -25,6 +26,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.util.Callback;
@@ -49,6 +51,10 @@ public class FXMLMainController implements Initializable {
     @FXML
     private JFXComboBox<String> cb_Estado;
     @FXML
+    private JFXTextField txt_Titulo;
+    @FXML
+    private JFXTextField txt_Autor;
+    @FXML
     private Label btn_Inicio;
     @FXML
     private Label btn_Prestamos;
@@ -60,6 +66,8 @@ public class FXMLMainController implements Initializable {
     private JFXTabPane tab_main;
     @FXML
     private Label pop_Id;
+    @FXML
+    private ImageView btn_Search;
 
     private JFXPopup popUp = new JFXPopup();
 
@@ -219,7 +227,6 @@ public class FXMLMainController implements Initializable {
                 tab_main.getSelectionModel().select(3);
                 break;
         }
-        System.out.println(label_Name);
     }
 
     @FXML
@@ -231,18 +238,35 @@ public class FXMLMainController implements Initializable {
         JFXButton logout = new JFXButton("Cerrar Sesion");
         JFXButton close = new JFXButton("Salir");
         logout.addEventHandler(MouseEvent.MOUSE_CLICKED, (event) -> {
-            
+
         });
-        
+
         close.addEventHandler(MouseEvent.MOUSE_CLICKED, (event) -> {
             System.exit(0);
         });
-        
+
         logout.setPadding(new Insets(10));
         logout.setPrefWidth(189);
         close.setPrefWidth(189);
         close.setPadding(new Insets(10));
         VBox vbox = new VBox(logout, close);
         popUp.setPopupContent(vbox);
-   }
+    }
+
+    @FXML
+    private void search_Queries(MouseEvent event) {
+        String Titulo = txt_Titulo.getText();
+        String Autor = txt_Autor.getText();
+        String Tipo = cb_Tipo.getValue();
+        String Area = cb_Area.getValue();
+        String Estado = cb_Estado.getValue();
+
+        ArrayList<Book> n_books;
+
+        n_books = Querys.search_Books(Titulo, Autor, Tipo, Area, Estado);
+
+        ObservableList<Book> oblist = FXCollections.observableArrayList(n_books);
+        tableInventario.getItems().clear();
+        tableInventario.setItems(oblist);
+    }
 }

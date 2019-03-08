@@ -20,6 +20,32 @@
    <children>
       <JFXTabPane fx:id="tab_main" prefHeight="700.0" prefWidth="1300.0">
          <tabs>
+            <Tab text="inventario">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <JFXTextField fx:id="txt_Titulo" focusColor="#1abc9c" layoutX="79.0" layoutY="39.0" prefHeight="19.0" prefWidth="240.0" styleClass="textfield" stylesheets="@main.css" unFocusColor="#808b96" />
+                        <Label layoutX="26.0" layoutY="46.0" styleClass="labelDark" stylesheets="@main.css" text="Título:" />
+                        <Label layoutX="362.0" layoutY="46.0" prefHeight="17.0" prefWidth="42.0" styleClass="labelDark" stylesheets="@main.css" text="Autor:" />
+                        <JFXTextField fx:id="txt_Autor" focusColor="#1abc9c" layoutX="456.0" layoutY="39.0" prefHeight="19.0" prefWidth="240.0" styleClass="textfield" stylesheets="@main.css" unFocusColor="#808b96" />
+                        <Label layoutX="26.0" layoutY="99.0" styleClass="labelDark" stylesheets="@main.css" text="Área:" />
+                        <JFXComboBox fx:id="cb_Area" layoutX="79.0" layoutY="85.0" prefHeight="25.0" prefWidth="241.0" styleClass="textfield" stylesheets="@main.css" />
+                        <Label layoutX="362.0" layoutY="99.0" prefHeight="17.0" prefWidth="42.0" styleClass="labelDark" stylesheets="@main.css" text="Tipo:" />
+                        <JFXComboBox fx:id="cb_Tipo" layoutX="456.0" layoutY="85.0" prefHeight="30.0" prefWidth="241.0" styleClass="textfield" stylesheets="@main.css" />
+                        <Separator layoutY="148.0" prefHeight="0.0" prefWidth="1300.0" />
+                        <ImageView fx:id="btn_Search" fitHeight="50.0" fitWidth="50.0" layoutX="1199.0" layoutY="59.0" onMouseClicked="#search_Queries" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                              <Image url="@../images/icons8-search-filled-50.png" />
+                           </image> 
+                        </ImageView>
+                        <TableView fx:id="tableInventario" layoutX="10.0" layoutY="254.0" prefHeight="452.0" prefWidth="980.0" stylesheets="@main.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="22.0" />
+                        <JFXButton fx:id="btn_Rtc" layoutX="1190.0" layoutY="163.0" onAction="#retroceder" prefHeight="25.0" prefWidth="30.0" styleClass="buttonDark" stylesheets="@main.css" text="&lt;" textAlignment="CENTER" />
+                        <JFXButton fx:id="btn_Sgt" layoutX="1236.0" layoutY="163.0" onAction="#avanzar" prefHeight="25.0" prefWidth="30.0" styleClass="buttonDark" stylesheets="@main.css" text="&gt;" textAlignment="CENTER" />
+                        <Label layoutX="763.0" layoutY="99.0" prefHeight="20.0" prefWidth="57.0" styleClass="labelDark" stylesheets="@main.css" text="Estado:" />
+                        <JFXComboBox fx:id="cb_Estado" layoutX="857.0" layoutY="85.0" prefHeight="30.0" prefWidth="241.0" styleClass="textfield" stylesheets="@main.css" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
           <Tab text="inicio">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
@@ -33,34 +59,6 @@
             <Tab text="alumnos">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-              </content>
-            </Tab>
-            <Tab text="inventario">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <JFXTextField focusColor="#1abc9c" layoutX="79.0" layoutY="39.0" prefHeight="19.0" prefWidth="240.0" styleClass="textfield" stylesheets="@main.css" unFocusColor="#808b96" />
-                        <Label layoutX="26.0" layoutY="46.0" styleClass="labelDark" stylesheets="@main.css" text="Título:" />
-                        <Label layoutX="362.0" layoutY="46.0" prefHeight="17.0" prefWidth="42.0" styleClass="labelDark" stylesheets="@main.css" text="Autor:" />
-                        <JFXTextField focusColor="#1abc9c" layoutX="456.0" layoutY="39.0" prefHeight="19.0" prefWidth="240.0" styleClass="textfield" stylesheets="@main.css" unFocusColor="#808b96" />
-                        <Label layoutX="26.0" layoutY="99.0" styleClass="labelDark" stylesheets="@main.css" text="Área:" />
-                        <JFXComboBox fx:id="cb_Area" layoutX="79.0" layoutY="85.0" prefHeight="25.0" prefWidth="241.0" styleClass="textfield" stylesheets="@main.css" />
-                        <Label layoutX="362.0" layoutY="99.0" prefHeight="17.0" prefWidth="42.0" styleClass="labelDark" stylesheets="@main.css" text="Tipo:" />
-                        <JFXComboBox fx:id="cb_Tipo" layoutX="456.0" layoutY="85.0" prefHeight="30.0" prefWidth="241.0" styleClass="textfield" stylesheets="@main.css" />
-                        <Separator layoutY="148.0" prefHeight="0.0" prefWidth="1300.0" />
-                        <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1199.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
-                          <image>
-                              <Image url="@../images/icons8-search-filled-50.png" />
-                           </image> 
-                        </ImageView>
-                        <TableView fx:id="tableInventario" layoutX="10.0" layoutY="254.0" prefHeight="452.0" prefWidth="980.0" stylesheets="@main.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="22.0" />
-                        <JFXButton fx:id="btn_Rtc" layoutX="1190.0" layoutY="163.0" onAction="#retroceder" prefHeight="25.0" prefWidth="30.0" styleClass="buttonDark" stylesheets="@main.css" text="&lt;" textAlignment="CENTER" />
-                        <JFXButton fx:id="btn_Sgt" layoutX="1236.0" layoutY="163.0" onAction="#avanzar" prefHeight="25.0" prefWidth="30.0" styleClass="buttonDark" stylesheets="@main.css" text="&gt;" textAlignment="CENTER" />
-                        <Label layoutX="763.0" layoutY="99.0" prefHeight="20.0" prefWidth="57.0" styleClass="labelDark" stylesheets="@main.css" text="Estado:" />
-                        <JFXComboBox fx:id="cb_Estado" layoutX="857.0" layoutY="85.0" prefHeight="30.0" prefWidth="241.0" styleClass="textfield" stylesheets="@main.css" />
-                        <Label layoutX="764.0" layoutY="46.0" prefHeight="20.0" prefWidth="72.0" styleClass="labelDark" stylesheets="@main.css" text="Cantidad:" />
-                        <JFXTextField focusColor="#1abc9c" layoutX="858.0" layoutY="39.0" prefHeight="19.0" prefWidth="240.0" styleClass="textfield" stylesheets="@main.css" unFocusColor="#808b96" />
-                     </children></AnchorPane>
               </content>
             </Tab>
          </tabs>
