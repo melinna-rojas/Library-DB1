@@ -21,7 +21,7 @@ public class Library extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLMain.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("FXMLLogin.fxml"));
         
         root.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
