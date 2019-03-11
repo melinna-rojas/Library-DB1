@@ -118,7 +118,7 @@ public class Querys extends DBConnector {
         PreparedStatement pst = null;
         ResultSet rs = null;
 
-        String query = "SELECT Titulo,Autor,Tipo,Area,Estado FROM libros WHERE Titulo LIKE '%{"+n_Titulo+"}%' OR Autor LIKE '%{" + n_Autor + "}%' OR Tipo LIKE '%{" + n_Tipo + "}% OR Area LIKE '%{" + n_Area + "}%' OR Estado LIKE '%{" + n_Estado + "}%'";
+        String query = "SELECT ISBN,Titulo,Autor,Tipo,Area,Estado,Cantidad FROM libros WHERE Titulo LIKE '%"+n_Titulo+"%' OR Autor LIKE '%" + n_Autor + "%' OR Tipo LIKE '%" + n_Tipo + "%' OR Area LIKE '%" + n_Area + "%' OR Estado LIKE '%" + n_Estado + "%'";
 
         try {
             DBConnector conector = new DBConnector();
@@ -140,6 +140,9 @@ public class Querys extends DBConnector {
             }
             return book_S;
         } catch (SQLException ex) {
+            System.out.println("Exception");
+            System.out.println(ex.getSQLState());
+            ex.printStackTrace();
             return null;
         }
     }

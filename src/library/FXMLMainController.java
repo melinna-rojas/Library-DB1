@@ -263,15 +263,10 @@ public class FXMLMainController implements Initializable {
         String Area = cb_Area.getValue();
         String Estado = cb_Estado.getValue();
         
-        System.out.println(Titulo);
-        System.out.println(Autor);
-        System.out.println(Tipo);
-        System.out.println(Area);
-        System.out.println(Estado);
-        ArrayList<Book> n_books;
-
+        ArrayList<Book> n_books = new ArrayList<>();
+        
         n_books = Querys.search_Books(Titulo, Autor, Tipo, Area, Estado);
-
+        System.out.println(n_books.size());
         ObservableList<Book> oblist = FXCollections.observableArrayList(n_books);
         tableInventario.getItems().clear();
         tableInventario.setItems(oblist);
