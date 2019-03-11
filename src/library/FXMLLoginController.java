@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -51,17 +52,16 @@ public class FXMLLoginController implements Initializable {
         boolean result;
         result = Querys.validar_login(user, password);
 
-        if (!result) {
-            JOptionPane.showMessageDialog(null, "Bienvenido\n Has ingresado "
-                    + "satisfactoriamente al sistema", "Mensaje de bienvenida",
-                    JOptionPane.INFORMATION_MESSAGE);
-            
-          /*  ((Node) (event.getSource())).getScene().getWindow().hide();
+        if (result) {
+            create_Alert("Mensaje de bienvenida", "Bienvenido\n Has ingresado "
+                    + "satisfactoriamente al sistema",Alert.AlertType.CONFIRMATION);
+                        
+           ((Node) (event.getSource())).getScene().getWindow().hide();
             Parent main = FXMLLoader.load(getClass().getResource("FXMLMain.fxml"));
             Stage stage = new Stage();
             stage.initStyle(StageStyle.UNDECORATED);
             
-            main.setOnMousePressed(new EventHandler<MouseEvent>() {
+          main.setOnMousePressed(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
                     xOffset = event.getSceneX();
@@ -79,15 +79,21 @@ public class FXMLLoginController implements Initializable {
 
             Scene scene = new Scene(main);
             stage.setScene(scene);
-            stage.show();*/
+            stage.show();
         } else {
-            JOptionPane.showMessageDialog(null, "Acceso denegado:\n"
-                    + "Por favor ingrese un usuario y/o contraseña correctos", "Acceso denegado",
-                    JOptionPane.ERROR_MESSAGE);
+            create_Alert("Acceso denegado", "Acceso denegado:\n"
+                    + "Por favor ingrese un usuario y/o contraseña correctos",Alert.AlertType.ERROR);
+            
             userLogin.setText("");
             passwordLogin.setText("");
         }
 
     }
-
+    public static void create_Alert(String Titulo, String Mensaje,Alert.AlertType Tipo){
+        Alert alert = new Alert(Tipo);
+        alert.setTitle(Titulo);
+        alert.setHeaderText(null);
+        alert.setContentText(Mensaje);
+        alert.showAndWait();
+    }
 }

@@ -81,22 +81,24 @@ public class FXMLMainController implements Initializable {
 
         //Llenando los combo box
         ArrayList<String> tipos = Querys.mostrar_Tipo();
-
         tipos.forEach((tipo) -> {
             cb_Tipo.getItems().add(tipo);
         });
+        cb_Tipo.setValue("");
 
         ArrayList<String> estados = Querys.mostrar_Estado();
 
         estados.forEach((estado) -> {
             cb_Estado.getItems().add(estado);
         });
+         cb_Estado.setValue("");
 
         ArrayList<String> areas = Querys.mostrar_Area();
 
         areas.forEach((area) -> {
             cb_Area.getItems().add(area);
         });
+         cb_Area.setValue("");
 
         TableColumn col_Codigo;
         TableColumn col_Titulo;
@@ -260,7 +262,12 @@ public class FXMLMainController implements Initializable {
         String Tipo = cb_Tipo.getValue();
         String Area = cb_Area.getValue();
         String Estado = cb_Estado.getValue();
-
+        
+        System.out.println(Titulo);
+        System.out.println(Autor);
+        System.out.println(Tipo);
+        System.out.println(Area);
+        System.out.println(Estado);
         ArrayList<Book> n_books;
 
         n_books = Querys.search_Books(Titulo, Autor, Tipo, Area, Estado);

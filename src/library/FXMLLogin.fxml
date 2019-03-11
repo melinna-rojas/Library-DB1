@@ -34,14 +34,14 @@
       <JFXTextField fx:id="userLogin" focusColor="WHITE" layoutX="404.0" layoutY="146.0" prefHeight="40.0" prefWidth="230.0" promptText="  Usuario" styleClass="txtFieldLogin" stylesheets="@main.css" unFocusColor="WHITE" />
       <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="365.0" layoutY="146.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/icons8-customer-40.png" />
+            <Image url="@../images/icons8-customer-filled-40.png" />
          </image>
       </ImageView>
       <Label layoutX="425.0" layoutY="262.0" styleClass="hipervinculo" stylesheets="@main.css" text="¿Olvidó su contraseña?" />
-      <JFXButton fx:id="btn_SignIn" layoutX="416.0" layoutY="332.0" onMouseClicked="#sig_in" prefHeight="40.0" prefWidth="164.0" styleClass="buttonDark" stylesheets="@main.css" text="INGRESAR" textAlignment="CENTER" />
+      <JFXButton fx:id="btn_SignIn" layoutX="416.0" layoutY="332.0" onMouseClicked="#sign_in" prefHeight="40.0" prefWidth="164.0" styleClass="buttonDark" stylesheets="@main.css" text="INGRESAR" textAlignment="CENTER" />
       <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="365.0" layoutY="205.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/icons8-lock-40.png" />
+            <Image url="@../images/icons8-lock-filled-40.png" />
          </image>
       </ImageView>
       <JFXPasswordField fx:id="passwordLogin" focusColor="WHITE" layoutX="404.0" layoutY="207.0" maxWidth="230.0" minWidth="230.0" prefHeight="40.0" prefWidth="230.0" promptText=" Contraseña" styleClass="txtFieldLogin" stylesheets="@main.css" unFocusColor="WHITE" />

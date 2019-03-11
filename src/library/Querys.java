@@ -118,7 +118,7 @@ public class Querys extends DBConnector {
         PreparedStatement pst = null;
         ResultSet rs = null;
 
-        String query = "SELECT ISBN,Titulo,Autor,Tipo,Area,Estado FROM libros WHERE Autor LIKE '%{" + n_Autor + "}%' OR Tipo LIKE '%{" + n_Tipo + "}% OR Area LIKE '%{" + n_Area + "}%' OR Estado LIKE '%{" + n_Estado + "}%'";
+        String query = "SELECT Titulo,Autor,Tipo,Area,Estado FROM libros WHERE Titulo LIKE '%{"+n_Titulo+"}%' OR Autor LIKE '%{" + n_Autor + "}%' OR Tipo LIKE '%{" + n_Tipo + "}% OR Area LIKE '%{" + n_Area + "}%' OR Estado LIKE '%{" + n_Estado + "}%'";
 
         try {
             DBConnector conector = new DBConnector();
@@ -126,6 +126,7 @@ public class Querys extends DBConnector {
             rs = pst.executeQuery();
 
             while (rs.next()) {
+                
                 String ISBN = rs.getString("ISBN");
                 String Titulo = rs.getString("Titulo");
                 String Autor = rs.getString("Autor");
@@ -146,7 +147,7 @@ public class Querys extends DBConnector {
     public static boolean validar_login(String user, String password) {
         boolean result = false;
 
-        String query = "SELECT * FROM usuarios WHERE user='" + user + "' AND =('" + password + "')";
+        String query = "SELECT * FROM usuarios WHERE user='" + user + "' AND password='" + password + "'";
 
         PreparedStatement pst = null;
         ResultSet rs = null;
