@@ -45,5 +45,10 @@
          </image>
       </ImageView>
       <JFXPasswordField fx:id="passwordLogin" focusColor="WHITE" layoutX="404.0" layoutY="207.0" maxWidth="230.0" minWidth="230.0" prefHeight="40.0" prefWidth="230.0" promptText=" Contraseña" styleClass="txtFieldLogin" stylesheets="@main.css" unFocusColor="WHITE" />
+      <ImageView fx:id="btn_Close" fitHeight="30.0" fitWidth="30.0" layoutX="661.0" layoutY="9.0" onMouseClicked="#close_Login" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="7.0">
+         <image>
+            <Image url="@../images/icons8-cancel-filled-30.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

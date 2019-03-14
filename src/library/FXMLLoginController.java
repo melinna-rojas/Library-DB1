@@ -14,6 +14,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -32,9 +33,12 @@ public class FXMLLoginController implements Initializable {
     private JFXPasswordField passwordLogin;
     @FXML
     private JFXButton btn_SignIn;
+    @FXML
+    private ImageView btn_Close;
     
     private double xOffset = 0;
     private double yOffset = 0;
+    
 
     /**
      * Initializes the controller class.
@@ -50,7 +54,7 @@ public class FXMLLoginController implements Initializable {
         String password = passwordLogin.getText();
         System.out.println(password);
         boolean result;
-        result = Querys.validar_login(user, password);
+        result = Queries.validar_login(user, password);
 
         if (result) {
             create_Alert("Mensaje de bienvenida", "Bienvenido\n Has ingresado "
@@ -95,5 +99,10 @@ public class FXMLLoginController implements Initializable {
         alert.setHeaderText(null);
         alert.setContentText(Mensaje);
         alert.showAndWait();
+    }
+
+    @FXML
+    private void close_Login(MouseEvent event) {
+        System.exit(0);
     }
 }

@@ -80,20 +80,20 @@ public class FXMLMainController implements Initializable {
         initPopUp();
 
         //Llenando los combo box
-        ArrayList<String> tipos = Querys.mostrar_Tipo();
+        ArrayList<String> tipos = Queries.mostrar_Tipo();
         tipos.forEach((tipo) -> {
             cb_Tipo.getItems().add(tipo);
         });
         cb_Tipo.setValue("");
 
-        ArrayList<String> estados = Querys.mostrar_Estado();
+        ArrayList<String> estados = Queries.mostrar_Estado();
 
         estados.forEach((estado) -> {
             cb_Estado.getItems().add(estado);
         });
          cb_Estado.setValue("");
 
-        ArrayList<String> areas = Querys.mostrar_Area();
+        ArrayList<String> areas = Queries.mostrar_Area();
 
         areas.forEach((area) -> {
             cb_Area.getItems().add(area);
@@ -134,8 +134,9 @@ public class FXMLMainController implements Initializable {
 
         });
 
+        //Dado que books es la lista de todo, no funcionará el avanzar y retroceder para cuando se especifique la busqueda
         tableInventario.getColumns().addAll(col_Codigo, col_Titulo, col_Autor, col_Tipo, col_Area, col_Estado, col_Cantidad);
-        books = Querys.listar();
+        books = Queries.listar();
 
         ArrayList<Book> _books = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
@@ -153,6 +154,8 @@ public class FXMLMainController implements Initializable {
         col_Estado.setCellValueFactory(new PropertyValueFactory("Estado"));
         col_Cantidad.setCellValueFactory(new PropertyValueFactory("Cantidad"));
         tableInventario.setItems(oblist);
+        
+        //No permitir que el botón buscar sirvaa si no hay nada escrito
     }
 
     @FXML
@@ -263,11 +266,20 @@ public class FXMLMainController implements Initializable {
         String Area = cb_Area.getValue();
         String Estado = cb_Estado.getValue();
         
-        ArrayList<Book> n_books = new ArrayList<>();
+             
+        books = Queries.search_Books(Titulo, Autor, Tipo, Area, Estado);
+        //Intentando solo igualar para que funcione la paginacion
         
-        n_books = Querys.search_Books(Titulo, Autor, Tipo, Area, Estado);
-        System.out.println(n_books.size());
-        ObservableList<Book> oblist = FXCollections.observableArrayList(n_books);
+        //Para cuando exitan mas de 10 resultados
+        ArrayList<Book> _books = new ArrayList<>();
+       
+        for (int i = 0; i < 10; i++) {
+            _books.add(books.get(i));
+            index = i;
+        }
+        
+        System.out.println(books.size());
+        ObservableList<Book> oblist = FXCollections.observableArrayList(_books);
         tableInventario.getItems().clear();
         tableInventario.setItems(oblist);
     }

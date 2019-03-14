@@ -1,5 +1,5 @@
 /*
-Querys and more
+Queries and more
  */
 package library;
 
@@ -14,7 +14,7 @@ import java.util.logging.Logger;
  *
  * @author Melinna
  */
-public class Querys extends DBConnector {
+public class Queries extends DBConnector {
 
     public static ArrayList<Book> listar() {
         ArrayList<Book> books = new ArrayList<>();
